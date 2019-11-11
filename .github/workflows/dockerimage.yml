@@ -12,10 +12,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build stubby
       working-directory: ./stubby
-      run: docker build docker.pkg.github.com/dalanmiller/stubby-docker/stubby:latest . --file Dockerfile --tag stubby:$(date +%s)
+      run: docker build -t docker.pkg.github.com/dalanmiller/stubby-docker/stubby:latest . --file Dockerfile --tag stubby:$(date +%s)
     
     - uses: actions/checkout@v1
     - name: Build unbound
       working-directory: ./unbound
-      run: docker build docker.pkg.github.com/dalanmiller/stubby-docker/unbound:latest . --file Dockerfile --tag unbound:$(date +%s)
+      run: docker build -t docker.pkg.github.com/dalanmiller/stubby-docker/unbound:latest . --file Dockerfile --tag unbound:$(date +%s)
     
