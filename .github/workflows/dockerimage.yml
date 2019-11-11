@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+    name: Build dalan-stubby and dalan-unbound
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build stubby
+      working-directory: ./stubby
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    
+    - uses: actions/checkout@v1
+    - name: Build unbound
+      working-directory: ./unbound
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    
