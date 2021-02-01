@@ -6,11 +6,12 @@ services:
      - dns
     restart: unless-stopped
   unbound:
-    image: "mvance/unbound:1.9.1-stubby"
+    image: "mvance/unbound:1.13.0-stubby"
     depends_on:
       - "stubby"    
     ports:
      - "53:53/udp"
+     - "53:53/tcp"
     networks:
      - dns
     volumes:
